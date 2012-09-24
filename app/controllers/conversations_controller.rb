@@ -1,10 +1,11 @@
 class ConversationsController < ApplicationController
+  before_filter :authenticate_user!
   def new
     @forum = Forum.find(params[:forum_id])
     @conversation = Conversation.new
     @comment = Comment.new
   end
-  
+
   def create
     @forum = Forum.find(params[:forum_id])
     @comment = Comment.new
@@ -16,7 +17,6 @@ class ConversationsController < ApplicationController
       c.comments << @comment
     end
     @comment.conversation = @conversation
-    puts @conversation
     if @conversation.save!
       redirect_to conversation_comments_path(@conversation)
     else
