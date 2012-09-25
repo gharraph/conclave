@@ -4,7 +4,7 @@ Conclave::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => "forums#index" 
   end
   root :to => "forums#index"
   devise_for :users
