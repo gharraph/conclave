@@ -13,11 +13,8 @@ class CommentsController < ApplicationController
   
   def create
     @conversation = Conversation.find(params[:conversation_id])
-    @comment = Comment.new do |c|
-      c.conversation = @conversation
-      c.content = params[:comment][:content]
-      c.user = current_user
-    end
+    @comment = @conversation.comments.new  params[:comment]
+    @comment.user  = current_user
     respond_to do |format|
       if @comment.save
         format.js

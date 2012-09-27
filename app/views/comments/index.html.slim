@@ -12,9 +12,10 @@
   .quick_reply
     .page-header
       h3 #{"Quick Reply"}
-    = simple_form_for [@conversation, @comment], :remote => true, :html => {:class => 'form-horizontal', :id => "quick_reply_form"} do |f|
+    = simple_form_for [@conversation, @comment], :remote => true, :html => {:class => 'form-horizontal', :id => "quick_reply_form", :multipart => true } do |f|
       = f.error_notification
       .form-inputs
         = f.input :content, :required => true, :autofocus => true, :label => "Body", :input_html => {:class => "span10"}
+		= f.file_field :photo
       .form-actions
         = f.button :submit, "Submit Comment", :class => "btn btn-primary"

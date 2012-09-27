@@ -15,6 +15,7 @@ gem 'meta_search', ">= 1.1.0.pre"
 gem "twitter-bootstrap-rails"
 gem "foreman"
 gem "unicorn"
+gem "quiet_assets"
 
 
 group :development, :test do

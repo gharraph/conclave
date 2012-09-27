@@ -10,3 +10,7 @@
           = comment.created_at.strftime("%m/%d/%Y")
       .comment_content
         = comment.content
+		br/
+		- if comment.photo?
+			= image_tag comment.photo.url(:small)
+
