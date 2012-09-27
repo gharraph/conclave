@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
                     :storage => :s3, 
                     :s3_credentials => S3_CREDENTIALS
                     
-  validates_attachment  :size => { :in => 0..500.kilobytes }
+  validates_attachment :photo, :size => { :in => 0..500.kilobytes }
   
   validates_presence_of :user, :conversation
 
